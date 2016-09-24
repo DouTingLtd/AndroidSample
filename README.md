@@ -38,6 +38,35 @@ dependencies {
 ```
 
 ###  4. 混淆
+Proguard中添加如下配置
+```java
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+-keep class douting.hearing.core.entity.**{ *; }
+-keep class douting.hearing.core.chart.**{ *; }
+
+#Retrofit
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
+-keepclasseswithmembers interface * {
+    @retrofit2.http.* <methods>;
+}
+
+#okhttp
+-dontwarn okhttp3.**
+-keep class okhttp3.**{*;}
+
+#okio
+-dontwarn okio.**
+-keep class okio.**{*;}
+```
 
 ## **初始化**
 ###  1. AndroidManifest.xml中权限添加
