@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
@@ -20,4 +19,12 @@
         android:layout_above="@+id/button"
         android:onClick="manualTest"
         android:text="手动测试" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:onClick="connectT100"
+        android:text="连接T100" />
 </RelativeLayout>
