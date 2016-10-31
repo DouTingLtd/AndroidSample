@@ -23,6 +23,9 @@
         <activity
             android:name=".TestActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".bluetooth.BluetoothReceiver">
             <intent-filter android:priority="1000">

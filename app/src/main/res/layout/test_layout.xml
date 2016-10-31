@@ -2,22 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="5">
+    android:orientation="vertical">
 
-    <douting.hearing.core.chart.ChartView
-        android:id="@+id/chart_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3" />
+    <include layout="@layout/common_toolbar" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:max="100" />
+        android:layout_height="match_parent">
+
+        <douting.hearing.core.chart.ChartView
+            android:id="@+id/chart_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/starting_Hearing_btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="87dp"
+            android:background="@drawable/roger_bg_selector"
+            android:gravity="center"
+            android:onClick="save"
+            android:text="@string/heard"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100" />
+    </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,20 +53,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="pause"
-            android:text="pause" />
+            android:text="@string/pause"
+            android:visibility="gone" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="save"
-            android:text="save" />
+            android:text="@string/save" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="stop"
-            android:text="stop" />
+            android:text="@string/stop"
+            android:visibility="gone" />
     </LinearLayout>
-
-
 </LinearLayout>

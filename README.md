@@ -3,7 +3,7 @@
 ## **导入教程**
 
 ###  1. 下载
- 请联系商务人员或技术支持或者去这个地址下载sdk
+ 请联系商务人员或技术支持或者~~去这个地址下载sdk~~，并保持版本是最新状态。
 
 ###  2. Eclipse（不建议使用）
  - [ ] 请将```Sdk\Eclipse\hearing_sdk.jar```这个放入```libs```文件夹内
@@ -82,13 +82,9 @@ Hearing.init(this, "8a2b000000000000000000000000000b");
 ###  TLBHearingTest.Builder
 TLBHearingTest是核心测听类，由Builder模式创建。
 
-- [ ] 创建一个构造器
+- [ ] 创建一个构造器，Sdk只支持听力检测仪，必须传入检测仪的MAC地址。
 ```java
-TLBHearingTest.Builder build = new TLBHearingTest.Builder(this);
-```
-- [ ] 如果是听力检测仪，设置检测仪的MAC地址。如果使用自带耳机测试，不需要设置。
-```java
-build.setDeviceMac("16:07:07:00:E0:1F");
+TLBHearingTest.Builder build = new TLBHearingTest.Builder(this, mac);
 ```
 - [ ] 设置测试的模式（目前支持的模式有自动测试```TLBHearingTest.TEST_TYPE_FAST```和手动测试```TLBHearingTest.TEST_TYPE_MANUAL```）。如不设置，默认为自动测试。
 ```java
