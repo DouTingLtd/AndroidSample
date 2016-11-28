@@ -2,7 +2,6 @@ package douting.android.sample;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -49,12 +48,12 @@ public class TestActivity extends ToolbarActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         chartView = (ChartView) findViewById(R.id.chart_view);
-        chartView.setOffset(getResources().getDimension(R.dimen.offic));
+        chartView.setOffset(getResources().getDimension(R.dimen.off_ic));
         if (atChannel == TLBHearingTest.CHANNEL_LEFT) {
-            setTitle(R.string.test_left);
+            setTitle(R.string.hearing_test_left);
             chartView.setTouchColor(Color.BLUE);
         } else {
-            setTitle(R.string.test_right);
+            setTitle(R.string.hearing_test_right);
             chartView.setTouchColor(Color.RED);
         }
         rightDataSet = new ResultDataSet(true);
@@ -162,12 +161,12 @@ public class TestActivity extends ToolbarActivity {
             super.onChangeChannel(newChannel);
             atChannel = newChannel;
             if (atChannel == TLBHearingTest.CHANNEL_LEFT) {
-                Toast.makeText(TestActivity.this, R.string.test_start_left, Toast.LENGTH_SHORT).show();
-                setTitle(R.string.test_left);
+                Toast.makeText(TestActivity.this, R.string.hearing_test_start_left, Toast.LENGTH_SHORT).show();
+                setTitle(R.string.hearing_test_left);
                 chartView.setTouchColor(Color.BLUE);
             } else {
-                Toast.makeText(TestActivity.this, R.string.test_start_right, Toast.LENGTH_SHORT).show();
-                setTitle(R.string.test_right);
+                Toast.makeText(TestActivity.this, R.string.hearing_test_start_right, Toast.LENGTH_SHORT).show();
+                setTitle(R.string.hearing_test_right);
                 chartView.setTouchColor(Color.RED);
             }
         }

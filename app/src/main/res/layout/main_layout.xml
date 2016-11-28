@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,22 +7,18 @@
     <include layout="@layout/common_toolbar" />
 
     <Button
-        android:id="@+id/start_bt"
-        android:layout_width="wrap_content"
+        android:id="@+id/easy_start"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/test_page_mid_1"
-        android:text="@string/listening_start"
-        android:textColor="@drawable/test_page_mid_color_selector"
+        android:gravity="center"
+        android:text="@string/easy_start"
         android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/disconnect_im"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/custom_start"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/start_bt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="38dp"
-        android:visibility="gone"
-        app:srcCompat="@drawable/disconnect_icon" />
-</RelativeLayout>
+        android:gravity="center"
+        android:text="@string/custom_start"
+        android:textSize="18sp" />
+</LinearLayout>

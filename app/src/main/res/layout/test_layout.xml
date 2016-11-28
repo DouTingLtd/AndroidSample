@@ -22,10 +22,9 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="87dp"
-            android:background="@drawable/roger_bg_selector"
+            android:background="@drawable/hearing_roger_selector"
             android:gravity="center"
             android:onClick="save"
-            android:text="@string/heard"
             android:textColor="@android:color/white" />
     </RelativeLayout>
 
@@ -53,20 +52,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="pause"
-            android:text="@string/pause"
+            android:text="@string/hearing_pause"
             android:visibility="gone" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="save"
-            android:text="@string/save" />
+            android:text="@string/hearing_save" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="stop"
-            android:text="@string/stop"
+            android:text="@string/hearing_stop"
             android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>

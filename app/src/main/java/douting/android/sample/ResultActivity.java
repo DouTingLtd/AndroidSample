@@ -43,9 +43,9 @@ public class ResultActivity extends ToolbarActivity {
 
     private void showText() {
         TextView result_right_text = findView(R.id.result_right_text);
-        result_right_text.setText(String.format(getString(R.string.test_right_state), mResult.getRightLoss(), diagnoseWord(mResult.getRightLoss())));
+        result_right_text.setText(String.format(getString(R.string.hearing_test_right_state), mResult.getRightLoss(), diagnoseWord(mResult.getRightLoss())));
         TextView result_left_text = findView(R.id.result_left_text);
-        result_left_text.setText(String.format(getString(R.string.test_left_state), mResult.getLeftLoss(), diagnoseWord(mResult.getLeftLoss())));
+        result_left_text.setText(String.format(getString(R.string.hearing_test_left_state), mResult.getLeftLoss(), diagnoseWord(mResult.getLeftLoss())));
     }
 
     /**
@@ -55,7 +55,7 @@ public class ResultActivity extends ToolbarActivity {
      * @return 文字诊断结果
      */
     private String diagnoseWord(int result) {
-        String resultStrings[] = getResources().getStringArray(R.array.diagnose_word);
+        String resultStrings[] = getResources().getStringArray(R.array.hearing_diagnose_word);
         if (result == -100) {
             return resultStrings[0];
         } else if (result <= 25) {

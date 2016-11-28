@@ -1,28 +1,5 @@
 <resources>
     <string name="app_name">听力测试</string>
-
-    <string name="listening_start">开始测试</string>
-    <string name="connect_bluetooth">连接耳机</string>
-    <string name="test_record">测听记录</string>
-    <string name="test_setting">设置</string>
-    <string name="pause">暂停</string>
-    <string name="save">保存</string>
-    <string name="stop">停止</string>
-    <string name="heard">听到了</string>
-    <string name="test_left">左耳测试</string>
-    <string name="test_start_left">现在开始测试左耳，请把耳机佩戴到左耳！</string>
-    <string name="test_left_state">您的左耳的平均听力损失为%1$d分贝，%2$s</string>
-    <string name="test_right">右耳测试</string>
-    <string name="test_start_right">现在开始测试右耳，请把耳机佩戴到右耳！</string>
-    <string name="test_right_state">您的右耳的平均听力损失为%1$d分贝，%2$s</string>
-
-    <string-array name="diagnose_word">
-        <item>未测试</item>
-        <item>属于正常。希望您继续保持好听力，聆听到老!</item>
-        <item>属于轻度听力损失。意味着您的听力不会影响您正常的生活与工作学习，建议您保持良好的生活和饮食习惯，保护听力从现在做起。</item>
-        <item>属于中度听力损失。这种程度的损失意味着您在平时交流时存在轻微障碍，如果您不注意听，可能无法听清对方的聊天内容，需要您交流的时候时刻集中注意力。听力宝手机助听器对您现阶段比较合适。</item>
-        <item>属于中重度听力损失。这种程度的损失意味着您在平时交流时存在比较大的问题，需要对方重复说话或者提高音量，才能正常理解对方的聊天内容。建议您使用听力宝手机助听器来帮助理解嘈杂环境下的交流，为了更好的生活也可验配助听器。</item>
-        <item>属于重度听力损失。这种程度的损失意味着您在平时交流时存在很大的问题，不仅需要对方提高音量交谈，还需要借助于看对方口型来帮助了解聊天内容。建议您验配助听器，避免因为听力损失而造成的生活不便。</item>
-        <item>属于极重度听力损失。这种程度的损失意味着您的生活受到严重的听力困扰。如果您继续保持这种听力损失，将会出现口齿不清的情况。建议您验配助听器或者使用人工耳蜗。生活需要聆听，不要放弃自己的听力!</item>
-    </string-array>
+    <string name="easy_start">快速接入</string>
+    <string name="custom_start">自定义接入</string>
 </resources>

@@ -5,15 +5,7 @@
 ###  1. 下载
  请联系商务人员或技术支持或者~~去这个地址下载sdk~~，并保持版本是最新状态。
 
-###  2. Eclipse（不建议使用）
- - [ ] 请将```Sdk\Eclipse\hearing_sdk.jar```这个放入```libs```文件夹内
- - [ ] 请将```Eclipse\res\```下的资源文件放入你的项目中。
- - [ ] 由于sdk内部网络通信使用的开源库[Retrofit2][1]，所以还需要添加retrofit相关的jar到```libs```下面。包括如下jar（如果你的项目正好也使用了retrofit，可以不用添加这个）：
- - converter-gson-2.1.0.jar
- - gson-2.7.jar
- - okhttp-3.3.0.jar
- - okio-1.8.0.jar
- - retrofit-2.1.0.jar
+###  2. Eclipse（不支持）
 
 ###  3. AndroidStudio
 - [ ] 请将```Sdk\AndroidStudio\hearing_sdk.aar```这个放入```libs```文件夹内
@@ -69,16 +61,30 @@ Proguard中添加如下配置
 ```
 
 ## **初始化**
-###  1. AndroidManifest.xml中权限添加
-- [ ] 由于需要联网获取校准数据，必须添加网络权限```<uses-permission android:name="android.permission.INTERNET" />```
 
-###  2. Application中初始化
+###  1. Application中初始化
 在Application中的```onCreate```中调用下面方法，其中```8a2b000000000000000000000000000b```为appKey，需要找商务人员或技术支持申请。
 ```java
 Hearing.init(this, "8a2b000000000000000000000000000b");
 ```
+## **快速接入**
 
-## **使用**
+###  1. AndroidManifest中添加相应的Activity
+```java
+<activity
+    android:name="douting.hearing.core.ui.HearingTestActivity"
+    android:screenOrientation="portrait" />
+<activity
+    android:name="douting.hearing.core.ui.HearingResultActivity"
+    android:screenOrientation="portrait" />
+```
+
+###  2. 在需要启动测试的时候执行
+```java
+Hearing.startTest(mContext);
+```
+
+## **自定义接入**
 ###  TLBHearingTest.Builder
 TLBHearingTest是核心测听类，由Builder模式创建。
 
