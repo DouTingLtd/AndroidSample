@@ -1,12 +1,8 @@
 package douting.android.sample;
 
-import android.text.TextUtils;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-
 import douting.android.sample.base.ToolbarActivity;
-import douting.hearing.core.Hearing;
 import douting.hearing.core.chart.ChartView;
 import douting.hearing.core.chart.PureToneResult;
 
@@ -28,9 +24,8 @@ public class ResultActivity extends ToolbarActivity {
 
     @Override
     protected void initView() {
-        String json = getIntent().getStringExtra(RESULT_JSON);
-        if (!TextUtils.isEmpty(json)) {
-            mResult = new Gson().fromJson(json, PureToneResult.class);
+        mResult = getIntent().getParcelableExtra(RESULT_JSON);
+        if (mResult != null) {
             ChartView chartView = findView(R.id.result_char);
 //            chartView.getXAxis().setScale(needTest);
             chartView.addDataSet(mResult.getLeftDataSet());

@@ -21,6 +21,7 @@ public class MainActivity extends ToolbarActivity {
     protected void initView() {
         findView(R.id.easy_start).setOnClickListener(this);
         findView(R.id.custom_start).setOnClickListener(this);
+        findView(R.id.easy_record).setOnClickListener(this);
     }
 
     @Override
@@ -29,6 +30,9 @@ public class MainActivity extends ToolbarActivity {
         switch (v.getId()) {
             case R.id.easy_start:
                 Hearing.startTest(mContext);
+                break;
+            case R.id.easy_record:
+                Hearing.startRecord(mContext);
                 break;
             case R.id.custom_start:
                 startActivity(new Intent(mContext, CustomActivity.class));

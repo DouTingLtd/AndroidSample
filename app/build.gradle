@@ -38,6 +38,4 @@ dependencies {
 //    compile project(':SdkLibrary')
 
     compile 'com.android.support:appcompat-v7:25.0.1'
-
-
 }

@@ -180,9 +180,8 @@ public class TestActivity extends ToolbarActivity {
         @Override
         public void onTestResult(PureToneResult pureToneResult) {
             super.onTestResult(pureToneResult);
-            String json = new Gson().toJson(pureToneResult);
             Intent intent = new Intent(mContext, ResultActivity.class);
-            intent.putExtra(ResultActivity.RESULT_JSON, json);
+            intent.putExtra(ResultActivity.RESULT_JSON, pureToneResult);
             startActivity(intent);
             finish();
         }

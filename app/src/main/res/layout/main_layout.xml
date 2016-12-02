@@ -15,6 +15,14 @@
         android:textSize="18sp" />
 
     <Button
+        android:id="@+id/easy_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/easy_record"
+        android:textSize="18sp" />
+
+    <Button
         android:id="@+id/custom_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
