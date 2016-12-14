@@ -8,7 +8,7 @@ import douting.hearing.core.Hearing;
 
 /**
  * Created by WuXiang on 2016/11/28.
- * WuXiang
+ * WuXiang@
  */
 
 public class MainActivity extends ToolbarActivity {
