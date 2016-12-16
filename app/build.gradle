@@ -8,8 +8,8 @@ android {
         applicationId "douting.android.sample"
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 101
+        versionName "1.01"
     }
     buildTypes {
         release {

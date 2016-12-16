@@ -67,6 +67,34 @@ Proguard中添加如下配置
 ```java
 Hearing.init(this, "8a2b000000000000000000000000000b");
 ```
+
+###  2. 用户信息共享
+必须设置用户信息，才能使用测听功能，方便我们以后继续合作。其中```唯一标识```、```性别```和```生日```将会影响测试结果的评分标准，为必填项。其他的信息选择设置。
+```java
+//sdkUseId 将为用户的唯一标识
+HearingUser userInfo = new HearingUser(sdkUseId);
+//Gender 只支持 Hearing.GENDER_MAN 和 Hearing.GENDER_WOMAN
+userInfo.setGender(Hearing.GENDER_MAN);
+//Birthday 格式为 ‘‘yyyyMMdd’’
+userInfo.setBirthday("20001102");
+//手机号等其他用户信息
+userInfo.setPhone("13026100183");
+...
+```
+
+```java
+Hearing.setUser(userInfo, new ExtCallback<HearingUser>() {
+    @Override
+    public void onSuccess(HearingUser data) {
+        Log.d("onSuccess", "onSuccess");
+    }
+
+    @Override
+    public void onFail(int code) {
+        Log.e("onFail", "code = " + code);
+    }
+});
+```
 ## **快速接入**
 
 ###  1. AndroidManifest中添加相应的Activity
@@ -82,6 +110,11 @@ Hearing.init(this, "8a2b000000000000000000000000000b");
 ###  2. 在需要启动测试的时候执行
 ```java
 Hearing.startTest(mContext);
+```
+
+###  3. 在需要查看测试记录的时候执行
+```java
+Hearing.startRecord(mContext);
 ```
 
 ## **自定义接入**
@@ -112,11 +145,6 @@ build.setFrequencyNeed(needTest);
 ```java
 build.setFirstChannel(atChannel);
 ```
-- [ ] 设置测试者的信息，以便准确的获取诊断结果（参数为性别和年龄，支持性别```Hearing.GENDER_MAN```，```Hearing.GENDER_WOMAN```）。如不设置，默认男，28岁。
-```java
-build.setTester(Hearing.GENDER_MAN, 28);
-```
-
 - [ ] 构造一个TLBHearingTest，需联网异步获取校准数据，耗时操作建议加上进度条。
 ```java
     build.build(new BuilderCallback() {

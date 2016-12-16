@@ -14,6 +14,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Hearing.init(this, "8a2bbc595769488501576ab27b2f02c7");
+        Hearing.init(this, "8a2b0565571d2024015727edcf730000");
     }
 }
