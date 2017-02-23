@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import java.util.List;
+
 import douting.android.sample.base.ToolbarActivity;
 import douting.hearing.core.Hearing;
 import douting.hearing.core.callback.ExtCallback;
+import douting.hearing.core.chart.PureToneResult;
 import douting.hearing.core.entity.HearingUser;
 
 /**
@@ -30,12 +33,12 @@ public class MainActivity extends ToolbarActivity {
     }
 
     private void setUser() {
-        HearingUser userInfo = new HearingUser("FGHRTYUILADFBAEE");
+        HearingUser userInfo = new HearingUser("FGHRTYUILADFBAECCB");
         userInfo.setPhone("13026100183");
         userInfo.setGender(Hearing.GENDER_MAN);
         userInfo.setBirthday("20001102");
 
-        Hearing.setUser(userInfo, new ExtCallback<HearingUser>() {
+        Hearing.setUser(this, userInfo, new ExtCallback<HearingUser>() {
             @Override
             public void onSuccess(HearingUser data) {
                 Log.d("onSuccess", "onSuccess");
@@ -57,6 +60,8 @@ public class MainActivity extends ToolbarActivity {
                 break;
             case R.id.easy_record:
                 Hearing.startRecord(mContext);
+
+                List<PureToneResult> resultList = Hearing.getRecord(mContext);
                 break;
             case R.id.custom_start:
                 startActivity(new Intent(mContext, CustomActivity.class));

@@ -83,7 +83,7 @@ userInfo.setPhone("13026100183");
 ```
 
 ```java
-Hearing.setUser(userInfo, new ExtCallback<HearingUser>() {
+Hearing.setUser(this, userInfo, new ExtCallback<HearingUser>() {
     @Override
     public void onSuccess(HearingUser data) {
         Log.d("onSuccess", "onSuccess");
@@ -98,23 +98,39 @@ Hearing.setUser(userInfo, new ExtCallback<HearingUser>() {
 ## **快速接入**
 
 ###  1. AndroidManifest中添加相应的Activity
+注意如果不添加```android:configChanges="keyboard|keyboardHidden|navigation"```，蓝牙设备连接成功后会重启Activity的生命周期，造成不必要的问题。
 ```java
 <activity
     android:name="douting.hearing.core.ui.HearingTestActivity"
+    android:configChanges="keyboard|keyboardHidden|navigation"
     android:screenOrientation="portrait" />
 <activity
     android:name="douting.hearing.core.ui.HearingResultActivity"
     android:screenOrientation="portrait" />
+<activity
+    android:name="douting.hearing.core.ui.HearingRecordActivity"
+    android:screenOrientation="portrait" />
+<activity
+    android:name="douting.hearing.core.ui.HearingConnectActivity"
+    android:configChanges="keyboard|keyboardHidden|navigation"
+    android:screenOrientation="portrait"
+    android:theme="@style/Theme.AppCompat.Dialog" />
 ```
 
 ###  2. 在需要启动测试的时候执行
 ```java
-Hearing.startTest(mContext);
+Hearing.startTest(mContext);//需在Hearing.setUser之后才能正常执行。
 ```
 
 ###  3. 在需要查看测试记录的时候执行
 ```java
-Hearing.startRecord(mContext);
+Hearing.startRecord(mContext);//需在Hearing.setUser之后才能正常执行。
+```
+
+###  4. 获取本地所有测试记录
+```java
+//需在Hearing.setUser之后才能正常执行。返回resultList可能为NULL，或者size = 0。
+List<PureToneResult> resultList = Hearing.getRecord(mContext);
 ```
 
 ## **自定义接入**

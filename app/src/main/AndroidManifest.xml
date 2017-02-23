@@ -28,6 +28,7 @@
 
         <activity
             android:name="douting.hearing.core.ui.HearingTestActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
         <activity
             android:name="douting.hearing.core.ui.HearingResultActivity"
@@ -35,6 +36,11 @@
         <activity
             android:name="douting.hearing.core.ui.HearingRecordActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="douting.hearing.core.ui.HearingConnectActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog" />
     </application>
 
 </manifest>
