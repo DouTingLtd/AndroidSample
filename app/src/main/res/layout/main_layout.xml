@@ -7,6 +7,14 @@
     <include layout="@layout/common_toolbar" />
 
     <Button
+        android:id="@+id/init_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/init_user"
+        android:textSize="18sp" />
+
+    <Button
         android:id="@+id/easy_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
