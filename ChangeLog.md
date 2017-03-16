@@ -1,3 +1,8 @@
+### 0.07.06--SDK包更新：
+ 1.修改`ChartView`的 attr 字段名称，避免冲突
+
+---
+
 ### 0.07.04--SDK包更新：
  1.添加`PureToneResult`中的文字诊断数据`rightEvaluate`和`leftEvaluate`
 
