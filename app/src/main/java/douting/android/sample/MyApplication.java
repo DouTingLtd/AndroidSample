@@ -13,6 +13,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Hearing.init(this, "8a2bbc596883f7bc0168fe9c23505899");
+        Hearing.init(this, "00");
     }
 }
