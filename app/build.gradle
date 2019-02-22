@@ -1,17 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "douting.android.sample"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 101
         versionName "1.01"
     }
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -31,11 +36,6 @@ repositories {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation(name: 'hearing_sdk', ext: 'aar')
-    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
-//    implementation project(':SdkLibrary')
-
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'douting.hearing.core:mod_sdk:0.8.0'
 }

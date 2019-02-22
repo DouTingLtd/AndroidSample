@@ -15,30 +15,29 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+# 忽略警告
+-ignorewarnings
 
-# Gson
+# Retrofit Okhttp Okio Gson
+-keepattributes Signature, InnerClasses, EnclosingMethod
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+-dontwarn org.codehaus.mojo.animal_sniffer.*
+-dontwarn javax.annotation.**
+-dontwarn kotlin.Unit
+-dontwarn retrofit2.-KotlinExtensions
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+-dontwarn okhttp3.internal.platform.ConscryptPlatform
 -keepattributes Signature
 -keepattributes *Annotation*
--keep class sun.misc.Unsafe { *; }
--keep class douting.hearing.core.entity.**{ *; }
--keep class douting.hearing.core.chart.**{ *; }
+-dontwarn sun.misc.**
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
 
-#Retrofit
--dontwarn retrofit2.**
--keep class retrofit2.** { *; }
--keepattributes Signature
--keepattributes Exceptions
--keepclasseswithmembers class * {
-    @retrofit2.http.* <methods>;
-}
--keepclasseswithmembers interface * {
-    @retrofit2.http.* <methods>;
-}
-
-#okhttp
--dontwarn okhttp3.**
--keep class okhttp3.**{*;}
-
-#okio
--dontwarn okio.**
--keep class okio.**{*;}
+# 实体类
+-keep class douting.hearing.core.entity.** { *; }
+-keep class douting.hearing.core.testing.chart.PureToneResult { *; }
+-keep class douting.hearing.core.testing.chart.ResultDataSet { *; }
+-keep class douting.hearing.core.testing.chart.ResultEntry { *; }

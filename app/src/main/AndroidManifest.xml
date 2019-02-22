@@ -12,35 +12,29 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CustomActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".TestActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ResultActivity"
-            android:screenOrientation="portrait" />
 
         <activity
-            android:name="douting.hearing.core.ui.HearingTestActivity"
-            android:configChanges="keyboard|keyboardHidden|navigation"
-            android:screenOrientation="portrait" />
+            android:name=".BuyBluetoothActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="DOUTING.ACTION.SDK_BUY_BT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name="douting.hearing.core.ui.HearingResultActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="douting.hearing.core.ui.HearingRecordActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="douting.hearing.core.ui.HearingConnectActivity"
-            android:configChanges="keyboard|keyboardHidden|navigation"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:name=".BuyHeadsetActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="DOUTING.ACTION.SDK_BUY_HEADSET" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

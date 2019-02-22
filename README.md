@@ -3,26 +3,22 @@
 ## **导入教程**
 
 ###  1. Gradle 依赖
-```java
-implementation 'douting.hearing.core:mod_sdk:0.7.9'
-```
-
-###  2. AAR 依赖
-- [ ] 请将```Sdk\AndroidStudio\hearing_sdk.aar```这个放入```libs```文件夹内
-- [ ] 在你Module的```build.gradle```里面添加如下配置：
-```java
-repositories {
-    flatDir {
-        dirs 'libs'
+- [ ] 项目的 build.gradle 中添加豆听的私有 maven
+```gradle
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        maven { url 'https://dl.bintray.com/doutingltd/maven' }
     }
 }
-
-dependencies {
-    implementation(name:'hearing_sdk', ext:'aar')
-}
 ```
-- [ ] 由于sdk内部使用了一些开源库，所以还需要添加相关依赖（如果你的项目正好也使用了，可以不用添加）：
-```java
+- [ ] Module 的 build.gradle 中添加
+```gradle
+implementation 'douting.hearing.core:mod_sdk:0.8.0'
+```
+- [ ] 由于SDK内部依赖了一些开源库，如果你的项目正好也使用了，如果有版本冲突，可以排除
+```gradle
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:support-annotations:27.1.1'
@@ -32,13 +28,13 @@ dependencies {
 }
 ```
 
-###  3. 支持
+###  2. 支持
 > * SDK 支持的 Android 最低版本号 minSdkVersion 16（4.1）
 > * Android Plugin version 3.2.0+
 > * Required Gradle version 4.6+
 > * Android 6.0 版本之后蓝牙扫描需要定位权限，请需提前申请
 
-###  4. 混淆
+###  3. 混淆
 Proguard 添加如下配置
 ```gradle
 # Retrofit Okhttp Okio Gson
@@ -122,16 +118,16 @@ List<PureToneResult> resultList = Hearing.getRecord(mContext);
 ## **支付相关**
 
 ###  1. 购买耳机测听次数
-用户进入到耳机选择界面的时候，sdk会去听力宝后台查询此用户是否有耳机测听的权限。此时用户选择进行耳机测听：
+用户进入到耳机选择界面的时候，SDK 会去听力宝后台查询此用户是否有耳机测听的权限。此时用户选择进行耳机测听：
 
 #### 1.1 有权限
 > * 进入测听流程。
 
 #### 1.2 没有权限
-> * 用户点击耳机之后，Sdk 会发出 Intent 通知 App 此用户需要购买，并附上建议的价格。
+> * 用户点击耳机之后，SDK 会发出 Intent 通知 App 此用户需要购买，并附上建议的价格。
 > * App 需要监听此 Action(```DOUTING.ACTION.SDK_BUY_HEADSET```) 的 Intent，并作出相应的处理。比如，打开你们的商城引导用户付费购买。
-> * 当用户购买成功之后，调用 Sdk 中的接口```hearing.addHeadsetCount(int number)``` or ```hearing.addHeadsetDays (int days)```。Sdk会给此用户添加相应的测听次数或时长。
-> * 用户返回耳机界面，Sdk会再次查询权限。
+> * 当用户购买成功之后，调用 SDK 中的接口```hearing.addHeadsetCount(int number)```。SDK 会给此用户添加相应的测听次数。
+> * 用户返回耳机界面，SDK会再次查询权限。
 
 ### 2. 购买检测仪
 用户进入到耳机选择界面并选择检测仪测听时会弹出连接引导框：
@@ -146,7 +142,5 @@ List<PureToneResult> resultList = Hearing.getRecord(mContext);
 > * 其他…
 
 #### 2.3 界面上会预留购买检测仪的按钮
-> * 当用户点击购买检测仪的按钮的时候 Sdk 会发出 Intent 通知 App 此用户需要购买，并附上建议的价格。
+> * 当用户点击购买检测仪的按钮的时候 SDK 会发出 Intent 通知 App 此用户需要购买，并附上建议的价格。
 > * App需要监听此 Action(```DOUTING.ACTION.SDK_BUY_BT```) 的 Intent，并作出相应的处理。比如，打开你们的商城引导用户付费购买。
-
-  [1]: http://square.github.io/retrofit/

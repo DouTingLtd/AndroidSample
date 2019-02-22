@@ -1,6 +1,9 @@
 package douting.android.sample;
 
-import android.content.Intent;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
@@ -10,8 +13,7 @@ import douting.hearing.core.callback.ExtCallback;
 import douting.hearing.core.entity.HearingUser;
 
 /**
- * Created by WuXiang on 2016/11/28.
- * WuXiang.
+ * @author by WuXiang on 2016/11/28.
  */
 
 public class MainActivity extends ToolbarActivity {
@@ -22,17 +24,24 @@ public class MainActivity extends ToolbarActivity {
 
     @Override
     protected void initView() {
-        findView(R.id.init_user).setOnClickListener(this);
-        findView(R.id.easy_start).setOnClickListener(this);
-        findView(R.id.custom_start).setOnClickListener(this);
-        findView(R.id.easy_record).setOnClickListener(this);
+        //判断是否有权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            //请求权限
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
+        }
     }
 
-    private void setUser() {
-        HearingUser userInfo = new HearingUser("FGHRTYUILADFBAECCB");
-        userInfo.setPhone("13026100183");
-        userInfo.setGender(Hearing.GENDER_MAN);
-        userInfo.setBirthday("20001102");
+    public void setUser(View view) {
+        //sdkUseId 将为用户的唯一标识
+        //Gender 只支持 Hearing.GENDER_MAN 和 Hearing.GENDER_WOMAN
+        //Birthday 格式为 ‘‘yyyyMMdd’’
+        HearingUser userInfo = new HearingUser("FGHRTYUILADFBAECCF", "19890512", "13026100214", Hearing.GENDER_MAN);
+        //其他用户信息
+        userInfo.setUsername("XiaoSe");
+        userInfo.setAddress("WuHan");
+        userInfo.setEmail("wuxiang@tinglibao.com.cn");
 
         Hearing.setUser(this, userInfo, new ExtCallback<HearingUser>() {
             @Override
@@ -47,22 +56,7 @@ public class MainActivity extends ToolbarActivity {
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        switch (v.getId()) {
-            case R.id.init_user:
-                setUser();
-                break;
-            case R.id.easy_start:
-                Hearing.startTest(mContext);
-                break;
-            case R.id.easy_record:
-                Hearing.startRecord(mContext);
-                break;
-            case R.id.custom_start:
-                startActivity(new Intent(mContext, CustomActivity.class));
-                break;
-        }
+    public void startTest(View view) {
+        Hearing.startTest(mContext);
     }
 }
