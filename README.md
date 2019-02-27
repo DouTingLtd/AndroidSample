@@ -15,7 +15,7 @@ allprojects {
 ```
 - [ ] Module 的 build.gradle 中添加
 ```gradle
-implementation 'douting.hearing.core:mod_sdk:0.8.0'
+implementation 'douting.hearing.core:mod_sdk:0.8.1'
 ```
 - [ ] 由于SDK内部依赖了一些开源库，如果你的项目正好也使用了，如果有版本冲突，可以排除
 ```gradle
