@@ -3,16 +3,6 @@
 ## **导入教程**
 
 ###  1. Gradle 依赖
-- [ ] 项目的 build.gradle 中添加豆听的私有 maven
-```gradle
-allprojects {
-    repositories {
-        jcenter()
-        google()
-        maven { url 'https://dl.bintray.com/doutingltd/maven' }
-    }
-}
-```
 - [ ] Module 的 build.gradle 中添加
 ```gradle
 implementation 'douting.hearing.core:mod_sdk:0.8.2'
