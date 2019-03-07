@@ -37,5 +37,5 @@ repositories {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'douting.hearing.core:mod_sdk:0.8.2'
+    implementation 'douting.hearing.core:mod_sdk:0.8.3'
 }
