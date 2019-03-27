@@ -5,7 +5,7 @@
 ###  1. Gradle 依赖
 - [ ] Module 的 build.gradle 中添加
 ```gradle
-implementation 'douting.hearing.core:mod_sdk:0.8.3'
+implementation 'douting.hearing.core:mod_sdk:0.8.4'
 ```
 - [ ] 由于SDK内部依赖了一些开源库，如果你的项目正好也使用了，如果有版本冲突，可以排除
 ```gradle
