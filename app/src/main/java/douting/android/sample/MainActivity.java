@@ -2,10 +2,11 @@ package douting.android.sample;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import douting.android.sample.base.ToolbarActivity;
 import douting.hearing.core.Hearing;

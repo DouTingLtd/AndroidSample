@@ -5,23 +5,33 @@
 ###  1. Gradle 依赖
 - [ ] Module 的 build.gradle 中添加
 ```gradle
-implementation 'douting.hearing.core:mod_sdk:0.8.4'
+implementation 'com.github.doutingltd:core:0.8.7'
+```
+- [ ] 记得再根 build.gradle 中添加 maven 库快照地址：
+```gradle
+...
+allprojects {
+    repositories {
+        ...
+        mavenCentral()
+    }
+}
+...
 ```
 - [ ] 由于SDK内部依赖了一些开源库，如果你的项目正好也使用了，如果有版本冲突，可以排除
 ```gradle
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:support-annotations:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
 ```
 
 ###  2. 支持
 > * SDK 支持的 Android 最低版本号 minSdkVersion 16（4.1）
-> * Android Plugin version 3.2.0+
-> * Required Gradle version 4.6+
+> * Android Plugin version 4.1.1+
+> * Required Gradle version 6.5+
 > * Android 6.0 版本之后蓝牙扫描需要定位权限，请需提前申请
 
 ###  3. 混淆

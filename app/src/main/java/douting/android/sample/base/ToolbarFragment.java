@@ -1,9 +1,8 @@
 package douting.android.sample.base;
 
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import douting.android.sample.R;
-
 
 /**
  * Created by Xiao.Se on 2016/5/27.
