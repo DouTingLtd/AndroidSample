@@ -48,7 +48,7 @@ public class HearingTestActivity extends SeeBaseActivity<HearingTestPresenter> {
         showStartDialog();
     }
 
-    //设置系统音量为最大
+    // 启动测听必须将系统音量为最大
     public void initAudioManager() {
         mAudioManager = (AudioManager) mContext.getSystemService(AUDIO_SERVICE);
         mCurrentVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
@@ -56,18 +56,28 @@ public class HearingTestActivity extends SeeBaseActivity<HearingTestPresenter> {
         mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, systemMax, 0);
     }
 
+    /**
+     * 测听图控件 HearingChart 说明
+     */
     private void initCharView() {
         mChartView = findViewById(R.id.chart_view);
+        // 设置纵坐标的点，5dB间隔，需要和测听范围对于，SDK只支持 15dB ~ 90dB 不可修改
         mChartView.getYAxis().setScale(new float[]{15f, 20f, 25f, 30f, 35f,
                 40f, 45f, 50f, 55f, 60f, 65f, 70f, 75f, 80f, 85f, 90f});
+        // 设置横线的间隔（2 的意思就是隔行显示）
         mChartView.getYAxis().setSpaceNum(1);
+        // 设置很坐标的点，需要和 HearingTest 设置的测听范围对应
         mChartView.getXAxis().setScale(Hearing.TEST_FREQUENCY_FLOAT);
 
         setTitle(R.string.hearing_test_right);
+        // Activity 这边的 mDataSet 仅仅做测听时的实时展示，存储的数据在 Presenter 那边
         mDataSet = new ResultDataSet(true);
+        // 用户触摸的点的颜色和形状，当改变左右耳的时候需要在改动
         mChartView.setTouchColor(Color.RED);
+        // 右耳是 O 左耳是 X
         mChartView.setTouchStyle(TouchDataSet.TOUCH_STYLE_RIGHT_POINT);
 
+        // 设置是否把每个点用线连起来，一般测的时候不连，展示结果的时候连
         mDataSet.setLine(false);
         mDataSet.setPainStrokeWidth(6f);
         mDataSet.setPointRadius(18f);
@@ -214,6 +224,7 @@ public class HearingTestActivity extends SeeBaseActivity<HearingTestPresenter> {
         dialog.setCanceledOnTouchOutside(false);
     }
 
+    // 测听结束后恢复音量
     @Override
     protected void onDestroy() {
         super.onDestroy();

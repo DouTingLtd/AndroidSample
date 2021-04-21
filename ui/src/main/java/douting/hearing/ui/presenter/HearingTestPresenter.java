@@ -36,11 +36,14 @@ public class HearingTestPresenter extends Presenter<HearingTestActivity> impleme
     }
 
     private void initTestResult() {
+        // 一个 PureToneResult 表示一条测听记录
         mTestResult = new PureToneResult();
+        // 一条测听记录里面包含左耳和右耳两条数据
         rightDataSet = new ResultDataSet(true);
         leftDataSet = new ResultDataSet(false);
         mTestResult.setLeftDataSet(leftDataSet);
         mTestResult.setRightDataSet(rightDataSet);
+        // 0：纯音测试；1：言语测试（暂不支持言语）
         mTestResult.setTestType(0);
     }
 
@@ -82,11 +85,26 @@ public class HearingTestPresenter extends Presenter<HearingTestActivity> impleme
         });
     }
 
+    /**
+     * 当前正在测听点的回调
+     *
+     * @param frequency 频率
+     * @param stimulus  强度
+     * @param channel   左右耳
+     */
     @Override
     public void onPlay(float frequency, float stimulus, int channel) {
         getView().onPlay(frequency, stimulus, channel);
     }
 
+    /**
+     * 患者听到了，需要调用 mHearingTest.onHear() 后就会回调此方法
+     *
+     * @param frequency 频率
+     * @param stimulus  强度
+     * @param channel   左右耳
+     * @param response  是否响应（自动测试时，如果强度到达最大90dB 还没有听到 response = false）
+     */
     @Override
     public void onSaveEntry(float frequency, float stimulus, int channel, boolean response) {
         getView().onSaveEntry(frequency, stimulus, channel, response);
@@ -100,21 +118,41 @@ public class HearingTestPresenter extends Presenter<HearingTestActivity> impleme
         }
     }
 
+    /**
+     * 切换左右耳回调
+     *
+     * @param newChannel 新的耳朵
+     */
     @Override
     public void onChangeChannel(int newChannel) {
         getView().onChangeChannel(newChannel);
     }
 
+    /**
+     * 测听状态回调 有问题未实现
+     *
+     * @param isPlaying 是否在测听
+     */
     @Override
     public void onStateChange(boolean isPlaying) {
 
     }
 
+    /**
+     * 测听进度
+     *
+     * @param progress 0 ~ 1 （1 表示完成）
+     */
     @Override
     public void onProgress(float progress) {
 
     }
 
+    /**
+     * 测听完成回调
+     *
+     * @param isComplete 一把为 true 无需关注
+     */
     @Override
     public void onOver(boolean isComplete) {
         getView().onOver();
@@ -127,12 +165,18 @@ public class HearingTestPresenter extends Presenter<HearingTestActivity> impleme
         mHearingTest.play(frequency, stimulus);
     }
 
+    /**
+     * 用户点击听到了按钮
+     */
     public void onHear() {
         if (mHearingTest != null) {
             mHearingTest.onHear();
         }
     }
 
+    /**
+     * 界面恢复时，恢复测听
+     */
     @Override
     public void onResume() {
         if (mHearingTest != null) {
@@ -140,6 +184,9 @@ public class HearingTestPresenter extends Presenter<HearingTestActivity> impleme
         }
     }
 
+    /**
+     * 界面不可见时，暂停测听
+     */
     @Override
     public void onPause() {
         if (mHearingTest != null) {
@@ -148,6 +195,9 @@ public class HearingTestPresenter extends Presenter<HearingTestActivity> impleme
 
     }
 
+    /**
+     * 释放资源
+     */
     @Override
     protected void onDestroyView() {
         super.onDestroyView();

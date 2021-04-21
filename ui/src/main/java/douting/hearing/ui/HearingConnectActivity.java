@@ -27,6 +27,8 @@ import douting.hearing.core.entity.DeviceItem;
 import douting.hearing.core.entity.MapList;
 
 /**
+ * 可以结合 http://blog.xiaosee.top/2017/03/09/Android-%E8%93%9D%E7%89%99%E9%85%8D%E5%AF%B9%E8%BF%9E%E6%8E%A5%E8%AF%A6%E7%BB%86%E6%8C%87%E5%AF%BC/ 了解
+ *
  * @author by wuxiang@tinglibao.com.cn on 2021/4/20.
  */
 public class HearingConnectActivity extends Activity {
