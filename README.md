@@ -69,4 +69,4 @@ Hearing.setUser(this, userInfo, new ExtCallback<HearingUser>() {
 });
 ```
 
-### 3.详细使用见ui库
+### 3.[详细使用见ui库 >](https://github.com/DouTingLtd/AndroidSample/tree/master/ui#readme)
