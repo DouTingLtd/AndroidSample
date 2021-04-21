@@ -1,14 +1,22 @@
 ## **快速接入**
 
-所有UI界面需在`Hearing.setUser`之后才能正常启动。
+###  1. UI库依赖
 
-###  1.启动测听
-```java
-        Intent intent = new Intent(this, HearingHeadsetActivity.class);
-        startActivity(intent);
+- [ ] Module 的 build.gradle 中添加
+```gradle
+implementation 'com.github.doutingltd:ui:0.1.1'
 ```
 
-###  2.界面说明
+
+所有UI界面需在`Hearing.setUser`之后才能正常启动。
+
+###  2.启动测听
+```java
+Intent intent = new Intent(this, HearingHeadsetActivity.class);
+startActivity(intent);
+```
+
+###  3.界面说明
 
 界面需要带参数进入，不能直接启动
 
