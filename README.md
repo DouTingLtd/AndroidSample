@@ -6,7 +6,7 @@
 
 - [ ] Module 的 build.gradle 中添加
 ```gradle
-implementation 'com.github.doutingltd:core:0.8.7'
+implementation 'com.github.doutingltd:core:0.8.8'
 ```
 - [ ] 记得再根 build.gradle 中添加 maven 库快照地址：
 ```gradle
