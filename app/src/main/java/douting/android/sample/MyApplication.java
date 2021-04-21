@@ -5,7 +5,7 @@ import android.app.Application;
 import douting.hearing.core.Hearing;
 
 /**
- * @author  by WuXiang on 2016/9/21.
+ * @author by WuXiang on 2016/9/21.
  */
 
 public class MyApplication extends Application {
@@ -13,6 +13,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Hearing.init(this, "00");
+        Hearing.init(this, "00000000000000");
     }
 }

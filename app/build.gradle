@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "douting.android.sample"
-        minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 101
-        versionName "1.01"
+
+        minSdkVersion parent.ext.minSdkVersion
+        targetSdkVersion parent.ext.targetSdkVersion
     }
     buildTypes {
         debug {
@@ -40,7 +39,13 @@ repositories {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.github.doutingltd:core:0.8.8'
+    implementation 'com.github.doutingltd:ui:0.1.1'
 
-    implementation 'com.github.doutingltd:core:0.8.7'
+    implementation 'io.github.xiaoseee:mvp:1.1.0'
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompat"
+    implementation "com.google.android.material:material:$rootProject.material"
+
+    //implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    //implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 }
