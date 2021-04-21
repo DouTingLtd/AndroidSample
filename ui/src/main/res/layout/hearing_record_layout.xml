@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar_mid_mvp" />
+
+    <ListView
+        android:id="@+id/record_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/empty_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/no_record_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/hearing_no_record"
+            android:src="@drawable/hearing_no_record" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_record_iv"
+            android:layout_alignStart="@+id/no_record_iv"
+            android:layout_alignLeft="@+id/no_record_iv"
+            android:layout_alignEnd="@+id/no_record_iv"
+            android:layout_alignRight="@+id/no_record_iv"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/hearing_no_record"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -52,3 +52,7 @@ freeline.py
 freeline/
 freeline_core/
 freeline_project_description.json
+
+
+# gpg
+*.gpg

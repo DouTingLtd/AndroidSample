@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/hearing_record_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/hearing_theme_color"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/hearing_record_title"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hearing_right_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingLeft="35dp"
+                android:paddingTop="8dp"
+                android:paddingRight="35dp"
+                android:paddingBottom="8dp"
+                android:text="@string/hearing_right_point"
+                android:textColor="#161616"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/hearing_left_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingLeft="35dp"
+                android:paddingTop="8dp"
+                android:paddingRight="35dp"
+                android:paddingBottom="8dp"
+                android:text="@string/hearing_left_point"
+                android:textColor="#161616"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingLeft="35dp"
+                android:paddingTop="8dp"
+                android:paddingRight="35dp"
+                android:paddingBottom="8dp"
+                android:text="@string/hearing_all_point"
+                android:textColor="#545454"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/hearing_all_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/hearing_score_bg"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="34sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hearing_test_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:paddingLeft="35dp"
+        android:paddingTop="8dp"
+        android:paddingRight="35dp"
+        android:paddingBottom="8dp"
+        android:text="@string/hearing_test_time"
+        android:textColor="#161616"
+        android:textSize="17sp" />
+</LinearLayout>
+
+

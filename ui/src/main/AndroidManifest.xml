@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="douting.hearing.ui">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application>
+        <activity
+            android:name=".HearingHeadsetActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HearingTestActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HearingResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HearingRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HearingConnectActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@style/HearingDialogActivity" />
+    </application>
+</manifest>

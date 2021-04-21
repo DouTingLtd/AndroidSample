@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hearing_dialog_top">
+
+        <TextView
+            android:id="@+id/devices_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:gravity="center"
+            android:text="@string/hearing_select_device"
+            android:textColor="@android:color/primary_text_light"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hearing_dialog_bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_paired_devices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/hearing_title_paired_devices"
+            android:textColor="#2FB791"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/paired_devices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:divider="#2FB791"
+            android:dividerHeight="1dp"
+            android:stackFromBottom="true" />
+
+        <TextView
+            android:id="@+id/empty_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/hearing_connect_note"
+            android:textColor="#323232"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/title_new_devices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/hearing_title_other_devices"
+            android:textColor="#2FB791"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/new_devices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:divider="#2FB791"
+            android:dividerHeight="1dp"
+            android:stackFromBottom="true" />
+
+        <LinearLayout
+            android:id="@+id/button_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/button_buy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/hearing_button_bg"
+                android:text="@string/hearing_buy"
+                android:textColor="@android:color/primary_text_dark"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/button_scan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/hearing_button_bg"
+                android:text="@string/hearing_button_scan"
+                android:textColor="@android:color/primary_text_dark"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
